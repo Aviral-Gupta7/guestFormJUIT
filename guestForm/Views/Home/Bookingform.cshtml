@@ -1,0 +1,43 @@
+﻿@model BookingForm
+
+@{
+    String[] DepartmentOptions = new string[4] { "Computer Science", "Humanities", "Mathematics", "Appllied Science" };
+}
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary ">Booking Form</h2>
+            <hr />
+        </div>
+        <div class="mb-3 row p-1">
+            <label class="form-label p-0">Faculty Name *</label>
+            <input asp-for="FacultyName" class="form-control border" />
+            <span asp-validation-for="FacultyName" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label class="form-label p-0">Telephone/Mobile no *</label>
+            <input asp-for="MobileNo" class="form-control border" />
+            <span asp-validation-for="MobileNo" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label class="form-label p-0">Department *</label>
+            <select asp-for="Department" class="form-control border">
+                @foreach (String department in DepartmentOptions)
+                {<option class="form-control border" value="@department">@department</option>}
+            </select>
+            <span asp-validation-for="Department" class="text-danger"></span>
+        </div>
+        @{
+            // Todo -> add Date and time for ( from to when)
+        }
+         <div class="row p-1">
+             <div class="col-6 col-md-3">
+                 <button type="submit" class="btn btn-primary form-control"><i class="bi bi-plus-circle"></i>Create Account</button>
+             </div>
+             <div class="col-6 col-md-3">
+                 <a asp-controller="User" asp-action="Login" class="btn btn-secondary border form-control">Already Have an Account?</a>
+             </div>
+         </div>
+    </div>
+</form>
