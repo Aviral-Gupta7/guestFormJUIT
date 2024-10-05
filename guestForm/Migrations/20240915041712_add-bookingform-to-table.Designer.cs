@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Oracle.EntityFrameworkCore.Metadata;
 using guestForm.Data;
@@ -11,9 +12,11 @@ using guestForm.Data;
 namespace guestForm.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240915041712_add-bookingform-to-table")]
+    partial class addbookingformtotable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,8 +27,9 @@ namespace guestForm.Migrations
 
             modelBuilder.Entity("guestForm.Models.BookingForm", b =>
                 {
-                    b.Property<string>("FormId")
-                        .HasColumnType("NVARCHAR2(450)");
+                    b.Property<Guid>("FormId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("RAW(16)");
 
                     b.Property<DateTime>("DateTimeFrom")
                         .HasColumnType("TIMESTAMP(7)");
@@ -59,19 +63,8 @@ namespace guestForm.Migrations
                     b.Property<bool>("IsRegistrarApproved")
                         .HasColumnType("BOOLEAN");
 
-                    b.Property<bool>("MealsRequired")
-                        .HasColumnType("BOOLEAN");
-
-                    b.Property<string>("MobileNo")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
-
-                    b.Property<string>("Relation")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
-
-                    b.Property<string>("userId")
-                        .HasColumnType("NVARCHAR2(2000)");
+                    b.Property<int>("MobileNo")
+                        .HasColumnType("NUMBER(10)");
 
                     b.HasKey("FormId");
 
@@ -80,8 +73,9 @@ namespace guestForm.Migrations
 
             modelBuilder.Entity("guestForm.Models.User", b =>
                 {
-                    b.Property<string>("UserId")
-                        .HasColumnType("NVARCHAR2(450)");
+                    b.Property<Guid>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("RAW(16)");
 
                     b.Property<string>("Email")
                         .IsRequired()

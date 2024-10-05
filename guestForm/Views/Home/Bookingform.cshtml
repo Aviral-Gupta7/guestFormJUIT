@@ -11,32 +11,90 @@
             <hr />
         </div>
         <div class="mb-3 row p-1">
-            <label class="form-label p-0">Faculty Name *</label>
+            <label class="fw-bold">NAME OF FACULTY/STAFF & DESIGNATION * (Will not be booked in the name of student)</label>
             <input asp-for="FacultyName" class="form-control border" />
             <span asp-validation-for="FacultyName" class="text-danger"></span>
         </div>
         <div class="mb-3 row p-1">
-            <label class="form-label p-0">Telephone/Mobile no *</label>
+            <label class="form-label fw-bold p-0">TELEPHONE/MOBILE NO *</label>
             <input asp-for="MobileNo" class="form-control border" />
             <span asp-validation-for="MobileNo" class="text-danger"></span>
         </div>
         <div class="mb-3 row p-1">
-            <label class="form-label p-0">Department *</label>
+            <label class="form-label fw-bold p-0">DEAPRTMENT *</label>
             <select asp-for="Department" class="form-control border">
                 @foreach (String department in DepartmentOptions)
                 {<option class="form-control border" value="@department">@department</option>}
             </select>
             <span asp-validation-for="Department" class="text-danger"></span>
         </div>
-        @{
-            // Todo -> add Date and time for ( from to when)
-        }
+        <div class="mb-3 row p-1 flex-column gap-2">
+            <label class="form-label fw-bold p-0">DATE AND TIME*</label>
+            <div>
+                <label style="width : 14rem;" class="form-label fw-bold p-0">
+                    From :
+                </label>
+                <input asp-for ="DateTimeFrom" type="datetime-local" />
+                <span asp-validation-for="DateTimeFrom" class="text-danger"></span>
+            </div>
+            <div>
+                <label style="width : 14rem;" class="form-label fw-bold p-0">UpTo Required :</label>
+                <input asp-for="DateTimeUpto" type="datetime-local" />
+                <span asp-validation-for="DateTimeUpto" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="mb-3 row p-1 flex-column gap-2">
+            <label class="form-label fw-bold p-0">TOTAL NUMBER OF GUEST(S) *</label>
+            <div>
+                <label style="width : 14rem;" class="form-label p-0 fw-bold">Male Single</label>
+                <input asp-for="GuestNumMaleSin" type="number" value="0" min="0" />
+                <span asp-validation-for="GuestNumMaleSin" class="text-danger"></span>
+            </div>
+            <div>
+                <label style="width : 14rem;" class="form-label p-0 fw-bold">Female Single</label>
+                <input asp-for="GuestNuFemaleSin" type="number" value="0" min="0" />
+                <span asp-validation-for="GuestNuFemaleSin" class="text-danger"></span>
+            </div>
+            <div>
+                <label style="width : 14rem;" class="form-label p-0 fw-bold">Couple</label>
+                <input asp-for="GuestNumCouple" type="number" value="0" min="0" />
+                <span asp-validation-for="GuestNumCouple" class="text-danger"></span>
+            </div>
+            <div>
+                <label style="width : 14rem;" class="form-label p-0 fw-bold">Children above 5 years</label>
+                <input asp-for="GuestNumChildren" type="number" value="0" />
+                <span asp-validation-for="GuestNumChildren" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="mb-3 row p-1 flex-column gap-2">
+            <label class="form-label fw-bold p-0">RELATIONSHIP OF GUEST WITH REQUISITIONER*</label>
+            <div>
+                <div>
+                    <label style="width : 14rem;" class="form-label p-0 fw-bold">Blood Relative</label>
+                    <input asp-for="Relation" type="radio" value="BloodRelative" />
+                </div>
+                <div>
+                    <label style="width : 14rem;" class="form-label p-0 fw-bold">Relative</label>
+                    <input asp-for="Relation" type="radio" value="Relative" />
+                </div>
+                <div>
+                    <label style="width : 14rem;" class="form-label p-0 fw-bold">Friend</label>
+                    <input asp-for="Relation" type="radio" value="Friend" />
+                </div>
+                <span asp-validation-for="Relation" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="mb-3 row p-1 flex-column gap-2">
+            <label class="form-label fw-bold p-0">MEALS*</label>
+            <div>
+                <label style="width : 14rem;" class="form-label p-0 fw-bold">Required</label>
+                <input asp-for="MealsRequired" type="checkbox" />
+            </div>
+            <span asp-validation-for="MealsRequired" class="text-danger"></span>
+        </div>
          <div class="row p-1">
              <div class="col-6 col-md-3">
-                 <button type="submit" class="btn btn-primary form-control"><i class="bi bi-plus-circle"></i>Create Account</button>
-             </div>
-             <div class="col-6 col-md-3">
-                 <a asp-controller="User" asp-action="Login" class="btn btn-secondary border form-control">Already Have an Account?</a>
+                 <button type="submit" class="btn  btn-primary form-control">Submit Form</button>
              </div>
          </div>
     </div>

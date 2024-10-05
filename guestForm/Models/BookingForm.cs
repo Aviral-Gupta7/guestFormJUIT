@@ -1,6 +1,6 @@
-﻿
-
+﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 
 namespace guestForm.Models
@@ -8,33 +8,38 @@ namespace guestForm.Models
     public class BookingForm
     {
         [Key]
-        public Guid FormId { get; set; }
+        public String? FormId { get; set; }
 
-        // will be added after login is implemented
-
-        //[ForeignKey("UserId")]
-        //public String? UserId { get; set; }
+        [ForeignKey("User")]
+        public String? userId { get; set; }
 
         [Required]
         public String? FacultyName { get; set; }
         [Required]
-        public int MobileNo { get; set; }
+        public String? MobileNo { get; set; }
         [Required]
         public String? Department { get; set; }
         [Required]
-        public int GuestNuMaleSi { get; set; }
+        public DateTime DateTimeFrom { get; set; }
         [Required]
-        public int GuestNuFemaleSi { get; set; }
+        public DateTime DateTimeUpto { get; set; }
         [Required]
-        public int GuestNuCouple { get; set; }
+        public int GuestNumMaleSin { get; set; }
         [Required]
-        public int GuestNuChildren { get; set; }
-        public DateTime From { get; set; }
-        public DateTime Upto { get; set; }
+        public int GuestNuFemaleSin { get; set; }
         [Required]
-        public String? RelationWithRequisitionerr { get; set; }
+        public int GuestNumCouple { get; set; }
+        [Required]
+        public int GuestNumChildren { get; set; }
+        [Required]
+        public String? Relation { get; set; }
+        [Required]
+        public bool MealsRequired { get; set; }
+        [Required]
         public bool IsAdminApproved { get; set; }
+        [Required]
         public bool IsRegistrarApproved { get; set; }
 
+        
     }
 }

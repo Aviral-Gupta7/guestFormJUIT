@@ -18,6 +18,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\dotnet\guestForm
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/dotnet/guestForm/Views/Approve/admin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwcm92ZVxhZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dotnet/guestForm/Views/Approve/registrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwcm92ZVxyZWdpc3RyYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dotnet/guestForm/Views/Approve/Succesfull.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwcm92ZVxTdWNjZXNmdWxsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/dotnet/guestForm/Views/Home/Bookingform.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxCb29raW5nZm9ybS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

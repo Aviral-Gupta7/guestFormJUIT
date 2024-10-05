@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Oracle.EntityFrameworkCore.Metadata;
 using guestForm.Data;
@@ -11,9 +12,11 @@ using guestForm.Data;
 namespace guestForm.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241005102958_addRelationToBookingForm")]
+    partial class addRelationToBookingForm
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -59,19 +62,11 @@ namespace guestForm.Migrations
                     b.Property<bool>("IsRegistrarApproved")
                         .HasColumnType("BOOLEAN");
 
-                    b.Property<bool>("MealsRequired")
-                        .HasColumnType("BOOLEAN");
+                    b.Property<int>("MobileNo")
+                        .HasColumnType("NUMBER(10)");
 
-                    b.Property<string>("MobileNo")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
-
-                    b.Property<string>("Relation")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
-
-                    b.Property<string>("userId")
-                        .HasColumnType("NVARCHAR2(2000)");
+                    b.Property<int>("Relation")
+                        .HasColumnType("NUMBER(10)");
 
                     b.HasKey("FormId");
 

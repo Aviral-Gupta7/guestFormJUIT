@@ -1,0 +1,77 @@
+﻿@model ApprovalModel
+
+<div>
+    <div style="font-size : 1.3rem;">
+        <div>
+            <span class="h4">Faculty Name : </span>
+            <span class="fw-semibold">@ViewBag.form.FacultyName</span>
+        </div>
+        <div>
+            <span class="h4">Mobile Number : </span>
+            <span class="fw-semibold">@ViewBag.form.MobileNo</span>
+        </div>
+        <div>
+            <span class="h4">Department : </span>
+            <span class="fw-semibold">@ViewBag.form.Department</span>
+        </div>
+
+        <div class="mt-3">
+            <span class="fw-bold">Date and Time</span>
+            <hr />
+            <div>
+                <span class="h4">From : </span>
+                <span class="fw-semibold">@ViewBag.form.DateTimeFrom</span>
+            </div>
+            <div>
+                <span class="h4">Upto : </span>
+                <span class="fw-semibold">@ViewBag.form.DateTimeUpto</span>
+            </div>
+        </div>
+
+        <div class="mt-3">
+            <span class="fw-bold">No Of Guests : </span>
+            <hr />
+            <div>
+                <span class="h4">Male Single : </span>
+                <span class="fw-semibold">@ViewBag.form.GuestNumMaleSin</span>
+            </div>
+            <div>
+                <span class="h4">Female Single : </span>
+                <span class="fw-semibold">@ViewBag.form.GuestNuFemaleSin</span>
+            </div>
+            <div>
+                <span class="h4">Couples : </span>
+                <span class="fw-semibold">@ViewBag.form.GuestNumCouple</span>
+            </div>
+            <div>
+                <span class="h4">Children Under 5 Y/O : </span>
+                <span class="fw-semibold">@ViewBag.form.GuestNumChildren</span>
+            </div>
+        </div>
+        <hr />
+        <div>
+            <span class="h4">RELATIONSHIP OF GUEST WITH REQUISITIONER: </span>
+            <span class="fw-semibold">@ViewBag.form.Relation</span>
+        </div>
+        <div>
+            <span class="h4">Meals Required: </span>
+            <span class="fw-semibold">@(ViewBag.form.MealsRequired ? "Required" : "Not Required")</span>
+        </div>
+        <hr />
+    </div>
+
+    <form action="https://localhost:7000/Approve/registrarApprove" method="post" class="mb-4">
+        <div hidden>
+            <input type="text" asp-for="formId" value="@ViewBag.form.FormId" />
+        </div>
+        <button type="submit" class="btn btn-primary w-25"> Approve request </button>
+    </form>
+
+    <form action="https://localhost:7000/Approve/registrarReject" method="post">
+        <div hidden>
+            <input type="text" asp-for="formId" value="@ViewBag.form.FormId" />
+        </div>
+        <button type="submit" class="btn btn-danger w-25"> Reject Request </button>
+    </form>
+
+</div>

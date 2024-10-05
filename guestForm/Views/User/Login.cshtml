@@ -1,5 +1,33 @@
-﻿@{
+﻿@model User
+
+@{
     ViewData["Title"] = "Login";
 }
 
-<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <span asp-validation-for="Email" class="text-danger"></span>
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary ">Log In</h2>
+            <hr />
+        </div>
+        <div class="mb-3 row p-1">
+            <label class="form-label p-0">Email *</label>
+            <input asp-for="Email" type="" class="form-control border" />
+            
+        </div>
+        <div class="mb-3 row p-1">
+            <label class="form-label p-0">Password *</label>
+            <input asp-for="Password" type="password" class="form-control border" />
+        </div>
+        <div class="row p-1">
+            <div class="col-6 col-md-3">
+                <button type="submit" class="btn btn-primary form-control"><i class="bi bi-plus-circle"></i>&nbsp;&nbsp;Log In</button>
+            </div>
+            <div class="col-6 col-md-3">
+                <a asp-controller="User" asp-action="Signup" class="btn btn-secondary border form-control">Don't Have an Account?</a>
+            </div>
+        </div>
+    </div>
+</form>

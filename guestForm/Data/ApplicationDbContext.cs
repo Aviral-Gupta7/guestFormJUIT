@@ -11,6 +11,7 @@ namespace guestForm.Data
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<BookingForm> BookingForms { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -7,7 +7,7 @@ namespace guestForm.Models
     public class User
     {
         [Key]
-        public Guid UserId { get; set; }
+        public string? UserId { get; set; }
 
         [Required(ErrorMessage = "FirstName is required.")]
         public string? FirstName { get; set; }
